@@ -131,7 +131,6 @@ func TestSetupServer(t *testing.T) {
 }
 
 func TestMain(m *testing.M) {
-    // This will improve coverage by executing main() in a test environment
     go func() {
         main()
     }()

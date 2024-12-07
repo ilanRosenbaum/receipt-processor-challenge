@@ -12,7 +12,13 @@ A RESTful web service that processes store receipts and calculates reward points
 
 ## Prerequisites
 
+Primary requirements:
+
 - Go 1.19 or higher
+- Git
+
+Alternative requirement (if not using Go):
+
 - Git
 - Docker
 
@@ -21,20 +27,30 @@ A RESTful web service that processes store receipts and calculates reward points
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/receipt-processor.git
+git clone https://github.com/ilanRosenbaum/receipt-processor-challenge.git
 cd receipt-processor
 ```
 
-2. Install dependencies:
+2. Choose your preferred method to run the service:
+
+### Using Go (Recommended)
 
 ```bash
+# Install dependencies
 go mod download
+
+# Run the service
+go run main.go
 ```
 
-3. Run the service:
+### Alternative: Using Docker
 
 ```bash
-go run main.go
+# Build the Docker image
+docker build -t receipt-processor .
+
+# Run the container
+docker run -p 8080:8080 receipt-processor
 ```
 
 The service will start on port 8080 by default.
@@ -63,6 +79,7 @@ Points are awarded based on the following rules:
 ## Development
 
 ### Project Structure
+
 ```
 .
 ├── internal/
@@ -78,11 +95,13 @@ Points are awarded based on the following rules:
 ### Running Tests
 
 Run all tests:
+
 ```bash
 go test ./...
 ```
 
 Run tests with coverage:
+
 ```bash
 go test ./... -cover
 ```
